@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Interactivo de Psicoanálisis Freudiano</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f4f4f4; }
+    h1 { text-align: center; }
+    .quiz-block { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    input[type="text"], select { padding: 6px; font-size: 14px; width: 80%; margin-top: 5px; }
+    .feedback { margin-top: 5px; font-weight: bold; }
+    .correct { color: green; }
+    .incorrect { color: red; }
+  </style>
+  <script>
+    function checkAnswer(input, correct, index) {
+      const feedback = document.getElementById("feedback" + index);
+      if (input.value.trim().toLowerCase() === correct.toLowerCase()) {
+        feedback.textContent = "✔ Correcto";
+        feedback.className = "feedback correct";
+      } else {
+        feedback.textContent = "✘ Incorrecto";
+        feedback.className = "feedback incorrect";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Quiz Interactivo - Psicoanálisis Freudiano</h1>
+  <div id="quiz-container">
+
+    <div class="quiz-block">
+      <b>1. La sublimación permite canalizar deseos inaceptables hacia fines socialmente aceptables.</b><br>
+      <select onchange="checkAnswer(this, 'Verdadero', 1)">
+        <option value="">Selecciona</option>
+        <option value="Verdadero">Verdadero</option>
+        <option value="Falso">Falso</option>
+      </select>
+      <div id="feedback1" class="feedback"></div>
+    </div>
+
+    <div class="quiz-block">
+      <b>2. Completa: El __________ actúa como mediador entre el Ello y el Superyó.</b><br>
+      <input type="text" onblur="checkAnswer(this, 'Yo', 2)" />
+      <div id="feedback2" class="feedback"></div>
+    </div>
+
+    <div class="quiz-block">
+      <b>3. ¿Qué instancia se rige por el principio del placer?</b><br>
+      <select onchange="checkAnswer(this, 'Ello', 3)">
+        <option value="">Selecciona</option>
+        <option value="Ello">Ello</option>
+        <option value="Yo">Yo</option>
+        <option value="Superyó">Superyó</option>
+        <option value="Inconsciente">Inconsciente</option>
+      </select>
+      <div id="feedback3" class="feedback"></div>
+    </div>
+
+    <div class="quiz-block">
+      <b>4. El contenido manifiesto del sueño es el significado simbólico inconsciente.</b><br>
+      <select onchange="checkAnswer(this, 'Falso', 4)">
+        <option value="">Selecciona</option>
+        <option value="Verdadero">Verdadero</option>
+        <option value="Falso">Falso</option>
+      </select>
+      <div id="feedback4" class="feedback"></div>
+    </div>
+
+    <div class="quiz-block">
+      <b>5. Completa: Freud llamó al sueño la vía __________ al inconsciente.</b><br>
+      <input type="text" onblur="checkAnswer(this, 'regia', 5)" />
+      <div id="feedback5" class="feedback"></div>
+    </div>
+
+    <div class="quiz-block">
+      <b>6. ¿Cuál es el objetivo principal del psicoanálisis?</b><br>
+      <select onchange="checkAnswer(this, 'Hacer consciente lo inconsciente', 6)">
+        <option value="">Selecciona</option>
+        <option value="Curar traumas infantiles">Curar traumas infantiles</option>
+        <option value="Modificar la conducta">Modificar la conducta</option>
+        <option value="Hacer consciente lo inconsciente">Hacer consciente lo inconsciente</option>
+        <option value="Eliminar el Superyó">Eliminar el Superyó</option>
+      </select>
+      <div id="feedback6" class="feedback"></div>
+    </div>
+
+  </div>
+</body>
+</html>
